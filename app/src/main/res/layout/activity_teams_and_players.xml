@@ -32,6 +32,13 @@
             android:textColor="@color/black"
             android:textSize="30sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="(click on any team for more)"/>
+
         <EditText
             android:id="@+id/inputSearch"
             android:layout_width="match_parent"

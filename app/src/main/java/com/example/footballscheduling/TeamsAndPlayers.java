@@ -55,7 +55,6 @@ public class TeamsAndPlayers extends AppCompatActivity {
                 adapterTeam = new AdapterTeam(TeamsAndPlayers.this, list);
                 recyclerView.setAdapter(adapterTeam);
                 adapterTeam.notifyDataSetChanged();
-                finish();
             }
 
             @Override

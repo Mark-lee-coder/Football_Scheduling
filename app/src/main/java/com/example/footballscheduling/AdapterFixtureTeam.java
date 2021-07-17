@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterFixtureTeam.MyViewHolder> {
+public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> {
     ArrayList<Teams> mList;
     Context context;
 
@@ -20,14 +20,15 @@ public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterFixtureTeam.
     }
 
     @NonNull
+    @NotNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.team_fixture_view, parent, false);
-        return new AdapterFixtureTeam.MyViewHolder(v);
+    public AdapterTeam.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.team_view,parent,false);
+        return new AdapterTeam.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull AdapterFixtureTeam.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull AdapterTeam.MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String Key = teams.getKey();
@@ -38,7 +39,7 @@ public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterFixtureTeam.
         return mList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public  static  class  MyViewHolder extends RecyclerView.ViewHolder {
         TextView TeamName;
 
         public MyViewHolder(@NonNull @NotNull View itemView) {
