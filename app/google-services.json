@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "954077431825",
+    "project_id": "football-app-c1283",
+    "storage_bucket": "football-app-c1283.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954077431825:android:10197cb2105ad9dfd009b0",
+        "android_client_info": {
+          "package_name": "com.example.footballscheduling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954077431825-p85backo57ed8fbo6dh835402364h7kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0FOYNLUNfa86UX06rwKGixD8mjYrrvT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954077431825-p85backo57ed8fbo6dh835402364h7kn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

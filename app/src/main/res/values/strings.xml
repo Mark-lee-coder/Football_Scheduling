@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Football Scheduling</string>
+    <string name="football_scheduling_application">Football Scheduling Application</string>
+    <string name="todo">todo</string>
+    <string-array name="loan_duration">
+        <item>3 months</item>
+        <item>6 months</item>
+        <item>9 months</item>
+        <item>12 months</item>
+        <item>18 months</item>
+        <item>24 months</item>
+        <item>End of the season</item>
+    </string-array>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>
