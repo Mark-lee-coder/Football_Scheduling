@@ -35,13 +35,13 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         Email = findViewById(R.id.userEmail);
         Password = findViewById(R.id.userPassword);
         Register = findViewById(R.id.textViewRegister);
         ForgotPassword = findViewById(R.id.textViewPassword);
         Login = findViewById(R.id.loginButton);
+
+        setSupportActionBar(toolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

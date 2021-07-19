@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +35,6 @@ import java.io.IOException;
 public class Profile extends AppCompatActivity {
     Toolbar toolbar;
     TextView Name, Email;
-    Button logout;
     ImageView profileImage, editPic;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -52,24 +50,12 @@ public class Profile extends AppCompatActivity {
 
         Name = findViewById(R.id.name);
         Email = findViewById(R.id.email);
-        logout = findViewById(R.id.logoutButton);
         profileImage = findViewById(R.id.profileImage);
         editPic = findViewById(R.id.editPic);
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
         firebaseAuth = FirebaseAuth.getInstance();
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getApplicationContext(), "LOG OUT SUCCESSFUL", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Profile.this, Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("FootballUsers");

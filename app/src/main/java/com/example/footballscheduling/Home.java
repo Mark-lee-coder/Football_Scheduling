@@ -1,7 +1,6 @@
 package com.example.footballscheduling;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ public class Home extends AppCompatActivity {
     Toolbar toolbar;
     TextView profile, logout, transfers, teamsAndPlayers, fixtures, table;
     ImageView Profile, Logout, Transfers, TeamsAndPlayers, Fixtures, Table;
-    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +57,11 @@ public class Home extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(Home.this);
-                progressDialog.show();
-                progressDialog.setContentView(R.layout.progress_dialog);
-                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
                 builder.setMessage("Are you sure you want to log out?");
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        progressDialog.dismiss();
                         FirebaseAuth.getInstance().signOut();
                         Toast.makeText(getApplicationContext(), "LOG OUT SUCCESSFUL", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(Home.this, Login.class);
@@ -79,7 +71,7 @@ public class Home extends AppCompatActivity {
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        progressDialog.dismiss();
+
                     }
                 });
                 AlertDialog alertDialog = builder.create();
@@ -90,17 +82,11 @@ public class Home extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(Home.this);
-                progressDialog.show();
-                progressDialog.setContentView(R.layout.progress_dialog);
-                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
                 builder.setMessage("Are you sure you want to log out?");
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        progressDialog.dismiss();
                         FirebaseAuth.getInstance().signOut();
                         Toast.makeText(getApplicationContext(), "LOG OUT SUCCESSFUL", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(Home.this, Login.class);
@@ -110,7 +96,7 @@ public class Home extends AppCompatActivity {
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        progressDialog.dismiss();
+
                     }
                 });
                 AlertDialog alertDialog = builder.create();

@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="horizontal"
-        android:paddingLeft="50dp">
+        android:paddingLeft="25dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:paddingLeft="10dp" />
 
     </LinearLayout>
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        android:paddingLeft="50dp">
+        android:paddingLeft="25dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,19 +92,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:paddingLeft="10dp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/logoutButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Football Scheduling Application"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
         android:layout_gravity="center"
-        android:layout_marginTop="75dp"
-        android:textColor="@color/white"
-        android:text="LOG OUT"
-        android:background="@color/blue" />
+        android:layout_marginTop="150dp"/>
 
 </LinearLayout>
