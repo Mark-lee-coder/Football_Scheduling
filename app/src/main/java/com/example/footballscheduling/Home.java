@@ -1,5 +1,8 @@
 package com.example.footballscheduling;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,11 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     Toolbar toolbar;
-    TextView profile, pTransfer, lTransfer, teamsAndPlayers, fixtures, table;
-    ImageView Profile, PTransfer, LTransfer, TeamsAndPlayers, Fixtures, Table;
+    TextView profile, logout, transfers, teamsAndPlayers, fixtures, table;
+    ImageView Profile, Logout, Transfers, TeamsAndPlayers, Fixtures, Table;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,20 +25,20 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         profile = findViewById(R.id.tvProfile);
-        pTransfer = findViewById(R.id.tvPTransfers);
-        lTransfer = findViewById(R.id.tvLTransfers);
+        logout = findViewById(R.id.tvLogoutButton);
+        transfers = findViewById(R.id.tvTransfers);
         teamsAndPlayers = findViewById(R.id.tvTeams);
         fixtures = findViewById(R.id.tvFixtures);
         table = findViewById(R.id.tvLTable);
         Profile = findViewById(R.id.ivProfile);
-        PTransfer = findViewById(R.id.ivPTransfers);
-        LTransfer = findViewById(R.id.ivLTransfers);
+        Logout = findViewById(R.id.ivLogoutButton);
+        Transfers = findViewById(R.id.ivTransfers);
         TeamsAndPlayers = findViewById(R.id.ivTeams);
         Fixtures = findViewById(R.id.ivFixtures);
         Table = findViewById(R.id.ivLTable);
+
+        setSupportActionBar(toolbar);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,35 +56,79 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        pTransfer.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, PermanentTransfer.class);
-                startActivity(intent);
+                progressDialog = new ProgressDialog(Home.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+                builder.setMessage("Are you sure you want to log out?");
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog.dismiss();
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(getApplicationContext(), "LOG OUT SUCCESSFUL", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Home.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
-        PTransfer.setOnClickListener(new View.OnClickListener() {
+        Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, PermanentTransfer.class);
-                startActivity(intent);
+                progressDialog = new ProgressDialog(Home.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+                builder.setMessage("Are you sure you want to log out?");
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog.dismiss();
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(getApplicationContext(), "LOG OUT SUCCESSFUL", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Home.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        progressDialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
-        lTransfer.setOnClickListener(new View.OnClickListener() {
+        transfers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LoanTransfer.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "You will be able to make transfers soon", Toast.LENGTH_SHORT).show();
             }
         });
 
-        LTransfer.setOnClickListener(new View.OnClickListener() {
+        Transfers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LoanTransfer.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "You will be able to make transfers soon", Toast.LENGTH_SHORT).show();
             }
         });
 

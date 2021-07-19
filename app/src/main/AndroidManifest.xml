@@ -16,14 +16,8 @@
         <activity android:name=".ViewPlayers" />
         <activity android:name=".RegisterPlayers" />
         <activity android:name=".RegisterTeam" />
-        <activity android:name=".DisplayLoans" />
-        <activity android:name=".DisplayPermanent" />
-        <activity android:name=".ViewPermanent" />
         <activity android:name=".Home" />
         <activity android:name=".TeamsAndPlayers" />
-        <activity android:name=".ViewLoans" />
-        <activity android:name=".LoanTransfer" />
-        <activity android:name=".PermanentTransfer" />
         <activity android:name=".Profile" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
