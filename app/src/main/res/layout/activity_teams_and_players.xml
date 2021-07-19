@@ -42,7 +42,7 @@
         <EditText
             android:id="@+id/inputSearch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:hint="Search team name here..."
             android:layout_margin="20dp"
