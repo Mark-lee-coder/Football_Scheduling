@@ -55,11 +55,26 @@ public class DisplayPlayers extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        /*list = new ArrayList<>();
-        adapterPlayers = new MyAdapterPlayers(this,list);
-        recyclerView.setAdapter(adapterPlayers);*/
-
         list = new ArrayList<>();
+
+        Query query = FirebaseDatabase.getInstance().getReference().child(TeamName);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
+                    list.add(modelPlayers);
+                }
+                adapterPlayers = new MyAdapterPlayers(DisplayPlayers.this, list);
+                recyclerView.setAdapter(adapterPlayers);
+                adapterPlayers.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
