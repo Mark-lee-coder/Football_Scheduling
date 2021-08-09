@@ -12,17 +12,15 @@
         android:id="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/teamParsed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="15dp"
-        android:text="REGISTER PLAYERS"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="dummy team"
+        android:textStyle="normal"
         android:textColor="@color/black"
-        android:textSize="25sp" />
+        android:textSize="20sp"
+        android:layout_marginLeft="135dp" />
 
     <EditText
         android:id="@+id/playerNames"

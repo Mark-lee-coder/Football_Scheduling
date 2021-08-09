@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
 public class RegisterPlayers extends AppCompatActivity {
     Toolbar toolbar;
     EditText playerName, idNumber;
+    TextView teamParsed;
     Button registerPlayer;
     ProgressDialog progressDialog;
     FirebaseDatabase firebaseDatabase;
@@ -37,6 +39,7 @@ public class RegisterPlayers extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         playerName = findViewById(R.id.playerNames);
         idNumber = findViewById(R.id.idNumbers);
+        teamParsed = findViewById(R.id.teamParsed);
         registerPlayer = findViewById(R.id.registerPlayer);
 
         setSupportActionBar(toolbar);
@@ -44,8 +47,12 @@ public class RegisterPlayers extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String key = extras.getString("Key");
 
+        Bundle extras1 = getIntent().getExtras();
+        String TeamName = extras1.getString("Team Name");
+        teamParsed.setText(TeamName);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Teams").child(key);
+        databaseReference = firebaseDatabase.getReference().child("Teams").child(key).child(TeamName);
 
         registerPlayer.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,14 +18,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class DisplayPlayers extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child("Players");
     private MyAdapterPlayers adapterPlayers;
     private ArrayList<ModelPlayers> list;
     Toolbar toolbar;
@@ -56,25 +55,11 @@ public class DisplayPlayers extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        list = new ArrayList<>();
+        /*list = new ArrayList<>();
         adapterPlayers = new MyAdapterPlayers(this,list);
-        recyclerView.setAdapter(adapterPlayers);
+        recyclerView.setAdapter(adapterPlayers);*/
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                  ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
-                  list.add(modelPlayers);
-                }
-                adapterPlayers.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
+        list = new ArrayList<>();
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,11 +88,12 @@ public class DisplayPlayers extends AppCompatActivity {
             }
         });
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+       floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayPlayers.this, RegisterPlayers.class);
                 intent.putExtra("Key", key);
+                intent.putExtra("Team Name", TeamName);
                 startActivity(intent);
             }
         });

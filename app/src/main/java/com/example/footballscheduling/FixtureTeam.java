@@ -45,7 +45,7 @@ public class FixtureTeam extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    String teams = dataSnapshot.child("TeamName").getValue().toString();
+                    //String teams = dataSnapshot.child("TeamName").getValue().toString();
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
