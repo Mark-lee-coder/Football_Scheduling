@@ -12,26 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class MyAdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> {
+public class MyAdapterTeam extends RecyclerView.Adapter<MyAdapterTeam.MyViewHolder> {
     ArrayList<Teams> mList;
     Context context;
-
 
     public MyAdapterTeam(Context context, ArrayList<Teams> mList) {
         this.mList = mList;
         this.context = context;
     }
-
     @NonNull
     @NotNull
     @Override
-    public AdapterTeam.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public MyAdapterTeam.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.team_view,parent,false);
-        return new AdapterTeam.MyViewHolder(v);
+        return new MyAdapterTeam.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull AdapterTeam.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull MyAdapterTeam.MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String key = teams.getKey();
@@ -39,7 +37,7 @@ public class MyAdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, PlayerTransfer.class);
+                Intent intent = new Intent(context, DisplayPlayers.class);
                 intent.putExtra("Team Name", teams.getTeamName());
                 intent.putExtra("Key", key);
                 Activity activity = (Activity) context;

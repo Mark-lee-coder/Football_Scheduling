@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyViewHolder> {
-    ArrayList<ModelPlayers> mList;
+public class AdapterPlayers extends RecyclerView.Adapter<AdapterPlayers.MyViewHolder> {
+    ArrayList<ModelPlayers1> mList;
     Context context;
 
-    public MyAdapterPlayers(Context context, ArrayList<ModelPlayers> mList){
+    public AdapterPlayers(Context context, ArrayList<ModelPlayers1> mList){
         this.mList = mList;
         this.context = context;
     }
@@ -22,14 +22,14 @@ public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyVi
     @NonNull
     @NotNull
     @Override
-    public MyAdapterPlayers.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.activity_view_players, parent, false);
-        return new MyViewHolder(v);
+    public AdapterPlayers.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.activity_transfer_player, parent, false);
+        return new AdapterPlayers.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull MyAdapterPlayers.MyViewHolder holder, int position) {
-        ModelPlayers modelPlayers = mList.get(position);
+    public void onBindViewHolder(@NonNull @NotNull AdapterPlayers.MyViewHolder holder, int position) {
+        ModelPlayers1 modelPlayers = mList.get(position);
         holder.PlayerName.setText(modelPlayers.getPlayerName());
         holder.IDNumber.setText(modelPlayers.getIDNumber());
     }

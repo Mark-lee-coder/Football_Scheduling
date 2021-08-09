@@ -6,7 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -15,40 +16,49 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class Transfers extends AppCompatActivity {
+public class PlayersTransfer extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private AdapterPlayers adapterPlayers;
+    private ArrayList<ModelPlayers1> list;
     Toolbar toolbar;
-    RecyclerView recyclerView;
-    EditText search;
-    private AdapterTeam adapterTeam;
-    private ArrayList<Teams> list;
+    ImageView transfer;
+    TextView teamParsed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transfers);
+        setContentView(R.layout.activity_players_transfer);
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
-        search = findViewById(R.id.inputSearch);
+        teamParsed = findViewById(R.id.teamParsed);
+        transfer = findViewById(R.id.transfer);
 
         setSupportActionBar(toolbar);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        Bundle extras = getIntent().getExtras();
+        String TeamName = extras.getString("Team Name");
+        teamParsed.setText(TeamName);
+
+        Bundle extras1 = getIntent().getExtras();
+        String key = extras1.getString("Key");
+
         recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("Teams");
+        Query query = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Teams model = dataSnapshot.getValue(Teams.class);
-                    list.add(model);
+                    ModelPlayers1 modelPlayers = dataSnapshot.getValue(ModelPlayers1.class);
+                    list.add(modelPlayers);
                 }
-                adapterTeam = new AdapterTeam(Transfers.this, list);
-                recyclerView.setAdapter(adapterTeam);
-                adapterTeam.notifyDataSetChanged();
+                adapterPlayers = new AdapterPlayers(PlayersTransfer.this, list);
+                recyclerView.setAdapter(adapterPlayers);
+                adapterPlayers.notifyDataSetChanged();
             }
 
             @Override

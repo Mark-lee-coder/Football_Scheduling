@@ -38,7 +38,7 @@ public class AdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DisplayPlayers.class);
+                Intent intent = new Intent(context, PlayersTransfer.class);
                 intent.putExtra("Team Name", teams.getTeamName());
                 intent.putExtra("Key", key);
                 Activity activity = (Activity) context;
