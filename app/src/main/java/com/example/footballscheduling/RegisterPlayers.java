@@ -52,7 +52,7 @@ public class RegisterPlayers extends AppCompatActivity {
         teamParsed.setText(TeamName);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child(TeamName);
+        databaseReference = firebaseDatabase.getReference().child("Teams").child(key).child("Players");
 
         registerPlayer.setOnClickListener(new View.OnClickListener() {
             @Override

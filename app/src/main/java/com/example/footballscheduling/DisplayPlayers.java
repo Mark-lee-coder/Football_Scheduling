@@ -57,7 +57,7 @@ public class DisplayPlayers extends AppCompatActivity {
 
         list = new ArrayList<>();
 
-        Query query = FirebaseDatabase.getInstance().getReference().child(TeamName);
+        Query query = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {

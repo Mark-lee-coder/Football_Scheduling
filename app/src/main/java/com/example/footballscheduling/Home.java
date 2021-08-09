@@ -107,14 +107,16 @@ public class Home extends AppCompatActivity {
         transfers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You will be able to make transfers soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, Transfers.class);
+                startActivity(intent);
             }
         });
 
         Transfers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You will be able to make transfers soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, Transfers.class);
+                startActivity(intent);
             }
         });
 
