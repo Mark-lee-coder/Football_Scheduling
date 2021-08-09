@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.EditText;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ public class Transfers extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
     EditText search;
-    private AdapterTeam adapterTeam;
+    private MyAdapterTeam adapterTeam;
     private ArrayList<Teams> list;
 
     @Override
@@ -49,7 +47,7 @@ public class Transfers extends AppCompatActivity {
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
-                adapterTeam = new AdapterTeam(Transfers.this, list);
+                adapterTeam = new MyAdapterTeam(Transfers.this, list);
                 recyclerView.setAdapter(adapterTeam);
                 adapterTeam.notifyDataSetChanged();
             }
