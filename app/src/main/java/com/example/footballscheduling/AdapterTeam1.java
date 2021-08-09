@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class AdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> {
+public class AdapterTeam1 extends RecyclerView.Adapter<AdapterTeam1.MyViewHolder> {
     ArrayList<Teams> mList;
     Context context;
 
-    public AdapterTeam(Context context, ArrayList<Teams> mList) {
+    public AdapterTeam1(Context context, ArrayList<Teams> mList) {
         this.mList = mList;
         this.context = context;
     }
@@ -24,13 +24,13 @@ public class AdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> 
     @NonNull
     @NotNull
     @Override
-    public AdapterTeam.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.team_view,parent,false);
-        return new MyViewHolder(v);
+    public AdapterTeam1.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.team_view1,parent,false);
+        return new AdapterTeam1.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull AdapterTeam.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull AdapterTeam1.MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String key = teams.getKey();
@@ -38,7 +38,7 @@ public class AdapterTeam extends RecyclerView.Adapter<AdapterTeam.MyViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DisplayPlayers.class);
+                Intent intent = new Intent(context, TransferPlayers.class);
                 intent.putExtra("Team Name", teams.getTeamName());
                 intent.putExtra("Key", key);
                 Activity activity = (Activity) context;

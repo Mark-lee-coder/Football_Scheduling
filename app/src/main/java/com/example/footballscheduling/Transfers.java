@@ -1,12 +1,11 @@
 package com.example.footballscheduling;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-import android.widget.EditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,8 +17,7 @@ import java.util.ArrayList;
 public class Transfers extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
-    EditText search;
-    private AdapterTeam adapterTeam;
+    private AdapterTeam1 adapterTeam1;
     private ArrayList<Teams> list;
 
     @Override
@@ -29,7 +27,6 @@ public class Transfers extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
-        search = findViewById(R.id.inputSearch);
 
         setSupportActionBar(toolbar);
 
@@ -46,9 +43,9 @@ public class Transfers extends AppCompatActivity {
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
-                adapterTeam = new AdapterTeam(Transfers.this, list);
-                recyclerView.setAdapter(adapterTeam);
-                adapterTeam.notifyDataSetChanged();
+                adapterTeam1 = new AdapterTeam1(Transfers.this, list);
+                recyclerView.setAdapter(adapterTeam1);
+                adapterTeam1.notifyDataSetChanged();
             }
 
             @Override

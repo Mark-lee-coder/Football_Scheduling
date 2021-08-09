@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PlayerTransfer extends AppCompatActivity {
+public class TransferPlayers extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_transfer);
+        setContentView(R.layout.activity_transfer_players);
     }
 }

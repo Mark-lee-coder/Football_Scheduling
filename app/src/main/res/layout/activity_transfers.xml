@@ -39,24 +39,6 @@
             android:layout_marginTop="5dp"
             android:text="(click on any team for more)"/>
 
-        <EditText
-            android:id="@+id/inputSearch"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:hint="Search team name here..."
-            android:layout_margin="20dp"
-            android:background="@drawable/input_search"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:drawableRight="@drawable/ic_baseline_search_24"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:drawableEnd="@drawable/ic_baseline_search_24" />
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
