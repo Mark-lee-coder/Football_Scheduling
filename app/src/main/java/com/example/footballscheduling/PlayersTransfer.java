@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class PlayersTransfer extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterPlayers adapterPlayers;
-    private ArrayList<ModelPlayers1> list;
+    private ArrayList<ModelPlayers> list;
     Toolbar toolbar;
     ImageView transfer;
     TextView teamParsed;
@@ -53,7 +53,7 @@ public class PlayersTransfer extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    ModelPlayers1 modelPlayers = dataSnapshot.getValue(ModelPlayers1.class);
+                    ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
                     list.add(modelPlayers);
                 }
                 adapterPlayers = new AdapterPlayers(PlayersTransfer.this, list);

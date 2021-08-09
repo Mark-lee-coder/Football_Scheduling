@@ -11,10 +11,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class AdapterPlayers extends RecyclerView.Adapter<AdapterPlayers.MyViewHolder> {
-    ArrayList<ModelPlayers1> mList;
+    ArrayList<ModelPlayers> mList;
     Context context;
 
-    public AdapterPlayers(Context context, ArrayList<ModelPlayers1> mList){
+    public AdapterPlayers(Context context, ArrayList<ModelPlayers> mList){
         this.mList = mList;
         this.context = context;
     }
@@ -29,7 +29,7 @@ public class AdapterPlayers extends RecyclerView.Adapter<AdapterPlayers.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull AdapterPlayers.MyViewHolder holder, int position) {
-        ModelPlayers1 modelPlayers = mList.get(position);
+        ModelPlayers modelPlayers = mList.get(position);
         holder.PlayerName.setText(modelPlayers.getPlayerName());
         holder.IDNumber.setText(modelPlayers.getIDNumber());
     }
