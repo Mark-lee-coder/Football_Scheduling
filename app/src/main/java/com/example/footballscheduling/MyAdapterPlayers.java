@@ -50,7 +50,7 @@ public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyVi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child("key").child("Players").child(key);
+                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child("Players").child(key);
                         databaseReference.removeValue();
                         Toast.makeText(context, "The player has been successfully deleted from your team", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(context, DisplayPlayers.class);
