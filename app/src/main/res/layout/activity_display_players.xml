@@ -39,16 +39,6 @@
                 android:textSize="20sp"
                 android:layout_marginLeft="135dp" />
 
-            <ImageView
-                android:id="@+id/delete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/ic_baseline_delete_24"
-                android:layout_alignParentRight="true" />
-
         </RelativeLayout>
 
         <EditText

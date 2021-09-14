@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class AdapterTeam1 extends RecyclerView.Adapter<AdapterTeam1.MyViewHolder> {
@@ -22,15 +21,14 @@ public class AdapterTeam1 extends RecyclerView.Adapter<AdapterTeam1.MyViewHolder
     }
 
     @NonNull
-    @NotNull
     @Override
-    public AdapterTeam1.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.team_view1,parent,false);
         return new AdapterTeam1.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull AdapterTeam1.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String key = teams.getKey();
@@ -39,7 +37,7 @@ public class AdapterTeam1 extends RecyclerView.Adapter<AdapterTeam1.MyViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, TransferPlayers.class);
-                intent.putExtra("Team Name", teams.getTeamName());
+                intent.putExtra("TeamName", teams.getTeamName());
                 intent.putExtra("Key", key);
                 Activity activity = (Activity) context;
                 activity.startActivity(intent);

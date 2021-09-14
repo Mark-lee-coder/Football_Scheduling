@@ -114,7 +114,7 @@ public class Profile extends AppCompatActivity {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(Profile.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Profile.this, "Image Uploaded", Toast.LENGTH_LONG).show();
                     fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {

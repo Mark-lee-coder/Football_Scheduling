@@ -1,60 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DisplayPlayers" >
+    tools:context=".TransferPlayers">
 
-    <LinearLayout
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/toolbar"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/teamParsed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="dummy team"
-            android:textStyle="normal"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_marginLeft="135dp" />
-
-        <EditText
-            android:id="@+id/inputSearch"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="Search player name here..."
-            android:layout_margin="20dp"
-            android:background="@drawable/input_search"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:drawableRight="@drawable/ic_baseline_person_search_24"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:drawableEnd="@drawable/ic_baseline_person_search_24" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

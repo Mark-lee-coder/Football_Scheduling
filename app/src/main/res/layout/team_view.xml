@@ -8,6 +8,16 @@
     android:padding="10dp"
     android:layout_margin="15dp">
 
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_baseline_delete_24" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +32,8 @@
             android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textSize="18sp" />
+
+
 
     </LinearLayout>
     

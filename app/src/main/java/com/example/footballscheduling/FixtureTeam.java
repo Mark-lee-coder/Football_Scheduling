@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,6 +15,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FixtureTeam extends AppCompatActivity {
     Toolbar toolbar;
@@ -45,7 +46,6 @@ public class FixtureTeam extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    //String teams = dataSnapshot.child("TeamName").getValue().toString();
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
@@ -63,8 +63,12 @@ public class FixtureTeam extends AppCompatActivity {
         fixture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You have clicked generate fixtures", Toast.LENGTH_SHORT).show();
+               new FixtureGenerator();
             }
         });
+    }
+
+    public class FixtureGenerator {
+
     }
 }

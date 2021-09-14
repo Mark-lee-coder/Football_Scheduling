@@ -11,9 +11,15 @@
         android:roundIcon="@mipmap/football_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballScheduling">
-        <activity android:name=".ViewPlayers1"></activity>
-        <activity android:name=".TransferPlayers" />
-        <activity android:name=".Transfers" />
+        <activity
+            android:name=".TransferPlayers"
+            android:exported="true" />
+        <activity
+            android:name=".Transfers"
+            android:exported="true" />
+        <activity android:name=".LeagueTable" />
+        <activity android:name=".Transfers1" />
+        <activity android:name=".ViewPlayers1" />
         <activity android:name=".FixtureTeam" />
         <activity android:name=".DisplayPlayers" />
         <activity android:name=".ViewPlayers" />

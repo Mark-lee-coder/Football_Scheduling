@@ -155,14 +155,16 @@ public class Home extends AppCompatActivity {
         table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You have clicked league table", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, LeagueTable.class);
+                startActivity(intent);
             }
         });
 
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You have clicked league table", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, LeagueTable.class);
+                startActivity(intent);
             }
         });
     }

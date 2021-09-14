@@ -95,7 +95,7 @@ public class RegisterPlayers extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Player with that ID Number already exists!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Player with that ID Number already exists for this team!", Toast.LENGTH_LONG).show();
                     idNumber.setText("");
                 }
                 else {

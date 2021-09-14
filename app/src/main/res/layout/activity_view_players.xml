@@ -9,7 +9,7 @@
     android:layout_margin="15dp">
 
     <ImageView
-        android:id="@+id/delete"
+        android:id="@+id/Delete"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="350dp"
@@ -65,13 +65,13 @@
                 android:textSize="20sp"/>
 
             <TextView
+                android:id="@+id/dummyID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:text="dummy ID"
-                android:textSize="17sp"
-                android:id="@+id/dummyId"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 

@@ -23,7 +23,7 @@ public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterTeam.MyViewH
     @NotNull
     @Override
     public AdapterTeam.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.team_view,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.team_view1,parent,false);
         return new AdapterTeam.MyViewHolder(v);
     }
 
