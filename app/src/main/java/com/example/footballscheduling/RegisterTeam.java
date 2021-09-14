@@ -3,6 +3,7 @@ package com.example.footballscheduling;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,8 +76,61 @@ public class RegisterTeam extends AppCompatActivity {
                     teamName.setText("");
                 }
                 else {
-                    TeamRegister teamRegister = new TeamRegister(TeamName);
-                    databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
+                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Teams");
+                    ValueEventListener valueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            long count = snapshot.getChildrenCount();
+                            Log.d("TAG", "count= " + count);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    };
+                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.getValue()!= null){
+                                snapshot.getChildrenCount();
+                                if (snapshot.getChildrenCount() >= 10){
+                                    progressDialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), "You cannot register more than 10 teams", Toast.LENGTH_LONG).show();
+                                    teamName.setText("");
+                                }
+                                else {
+                                    TeamRegister teamRegister = new TeamRegister(TeamName);
+                                    databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
+                                        @Override
+                                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                           String key = ref.getKey();
+                                           DatabaseReference reference = databaseReference.child(key);
+                                           reference.child("key").setValue(key).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                               @Override
+                                               public void onComplete(@NonNull Task<Void> task) {
+                                                  if (task.isSuccessful()){
+                                                      progressDialog.dismiss();
+                                                      Toast.makeText(getApplicationContext(), "Your team has been registered successfully", Toast.LENGTH_LONG).show();
+                                                      Intent intent = new Intent(RegisterTeam.this, TeamsAndPlayers.class);
+                                                      startActivity(intent);
+                                                      finish();
+                                                  }
+                                               }
+                                           });
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    //TeamRegister teamRegister = new TeamRegister(TeamName);
+                    /*databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
                             String key = ref.getKey();
@@ -98,11 +152,11 @@ public class RegisterTeam extends AppCompatActivity {
                                 }
                             });
                         }
-                    });
+                    });*/
                 }
             }
 
-            @Override
+           @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
             }
