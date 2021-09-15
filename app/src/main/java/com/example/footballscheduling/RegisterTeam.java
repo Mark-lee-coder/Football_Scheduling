@@ -129,30 +129,6 @@ public class RegisterTeam extends AppCompatActivity {
 
                         }
                     });
-                    //TeamRegister teamRegister = new TeamRegister(TeamName);
-                    /*databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
-                            String key = ref.getKey();
-                            DatabaseReference reference = databaseReference.child(key);
-                            reference.child("key").setValue(key).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        progressDialog.dismiss();
-                                        Toast.makeText(getApplicationContext(), "Your team has been registered successfully", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegisterTeam.this, TeamsAndPlayers.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                    else {
-                                        progressDialog.dismiss();
-                                        Toast.makeText(getApplicationContext(), "Your team has not been registered", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                        }
-                    });*/
                 }
             }
 

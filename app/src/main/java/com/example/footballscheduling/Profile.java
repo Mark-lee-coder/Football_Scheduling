@@ -1,7 +1,8 @@
 package com.example.footballscheduling;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,75 +29,106 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-import org.jetbrains.annotations.NotNull;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class Profile extends AppCompatActivity {
-    Toolbar toolbar;
-    TextView Name, Email;
-    ImageView profileImage, editPic;
-    FirebaseAuth firebaseAuth;
-    DatabaseReference databaseReference;
-    FirebaseUser firebaseUser;
+    TextView PName,PEmail;
+    ImageView profileImage,edit;
+    FirebaseAuth fAuth;
     ProgressDialog progressDialog;
-
-    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    StorageReference storageReference;
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Name = findViewById(R.id.name);
-        Email = findViewById(R.id.email);
+        PName = findViewById(R.id.name);
+        PEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
-        editPic = findViewById(R.id.editPic);
-        toolbar = findViewById(R.id.toolbar);
+        edit = findViewById(R.id.editPic);
 
-        setSupportActionBar(toolbar);
-        firebaseAuth = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference("FootballUsers");
-        String userId = firebaseUser.getUid();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("FootballUsers");
+        userID = user.getUid();
 
-        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                User profile = snapshot.getValue(User.class);
-                if (profile != null){
-                    String name = profile.name;
-                    String email = profile.email;
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
 
-                    Name.setText(name);
-                    Email.setText(email);
+                if(userProfile !=null){
+                    String fullNames = userProfile.name;
+                    String email = userProfile.email;
+
+                    PName.setText(fullNames);
+                    PEmail.setText(email);
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Something Went Wrong", Toast.LENGTH_LONG).show();
+            public void onCancelled(@NonNull DatabaseError error) {
+               Toast.makeText(getApplicationContext(), "Something went wrong!", Toast.LENGTH_LONG).show();
             }
         });
 
-        editPic.setOnClickListener(new View.OnClickListener() {
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        StorageReference profileRef = storageReference.child("FootballUsers/"+fAuth.getCurrentUser().getUid());
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(gallery,1000);
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileImage);
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectImage();
             }
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000) {
-            if (resultCode == Activity.RESULT_OK) {
-                Uri imageUri = data.getData();
-                uploadImageToFirebase(imageUri);
+    private void selectImage() {
+        final CharSequence[] options = { "Choose from Gallery","Cancel" };
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose your profile picture");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto , 1);
+                }
+                else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
             }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode != RESULT_CANCELED) {
+            Uri imageUri=data.getData();
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        profileImage.setImageBitmap(selectedImage);
+                    }
+
+                    break;
+            }
+            uploadImageToFirebase(imageUri);
         }
     }
 
@@ -108,17 +140,21 @@ public class Profile extends AppCompatActivity {
             byte[] bytes = bout.toByteArray();
             bout.close();
 
-            StorageReference fileRef =storageReference.child("FootballUsers/"+firebaseAuth.getCurrentUser().getUid());
+            StorageReference fileRef = storageReference.child("FootballUsers/"+fAuth.getCurrentUser().getUid());
             UploadTask uploadTask  = fileRef.putBytes(bytes);
+            progressDialog = new ProgressDialog(Profile.this);
             progressDialog.show();
+            progressDialog.setContentView(R.layout.progress_dialog);
+            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(Profile.this, "Image Uploaded", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Profile.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
                     fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            Picasso.get().load(uri).into(profileImage);
+                            Glide.with(getApplicationContext()).load(uri).into(profileImage);
                         }
                     });
                     progressDialog.dismiss();
@@ -129,8 +165,7 @@ public class Profile extends AppCompatActivity {
                     Toast.makeText(Profile.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
