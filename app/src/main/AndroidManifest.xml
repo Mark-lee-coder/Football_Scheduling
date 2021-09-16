@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballScheduling">
         <activity
+            android:name=".DisplayLeagueTable"
+            android:exported="true" />
+        <activity
             android:name=".TransferPlayers"
             android:exported="true" />
         <activity
