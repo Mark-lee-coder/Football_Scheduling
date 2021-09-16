@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,6 +38,7 @@ public class Profile extends AppCompatActivity {
     ImageView profileImage,edit;
     FirebaseAuth fAuth;
     ProgressDialog progressDialog;
+    Toolbar toolbar;
     StorageReference storageReference;
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -51,6 +53,9 @@ public class Profile extends AppCompatActivity {
         PEmail = findViewById(R.id.email);
         profileImage = findViewById(R.id.profileImage);
         edit = findViewById(R.id.editPic);
+        toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -63,12 +68,12 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
-                if(userProfile !=null){
-                    String fullNames = userProfile.name;
-                    String email = userProfile.email;
+                if(userProfile != null){
+                    String Name = userProfile.name;
+                    String Email = userProfile.email;
 
-                    PName.setText(fullNames);
-                    PEmail.setText(email);
+                    PName.setText(Name);
+                    PEmail.setText(Email);
                 }
             }
             @Override

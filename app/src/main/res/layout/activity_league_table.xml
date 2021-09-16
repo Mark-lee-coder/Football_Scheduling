@@ -11,6 +11,638 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Teams"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Played"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Won"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Lost"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Drawn"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Points"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team1"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team2"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team3"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team4"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team5"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team6"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team7"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team8"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team9"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team10"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:inputType="number"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
