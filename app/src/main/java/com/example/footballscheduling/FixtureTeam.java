@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,8 +16,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class FixtureTeam extends AppCompatActivity {
     Toolbar toolbar;
@@ -62,13 +61,11 @@ public class FixtureTeam extends AppCompatActivity {
 
         fixture.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-               new FixtureGenerator();
+            public void onClick(View view) {
+                Intent intent = new Intent(FixtureTeam.this, DisplayFixtures.class);
+                startActivity(intent);
+                finish();
             }
         });
-    }
-
-    public class FixtureGenerator {
-
     }
 }
