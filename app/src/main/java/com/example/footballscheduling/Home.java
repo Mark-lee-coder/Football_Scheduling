@@ -10,12 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     Toolbar toolbar;
     TextView profile, logout, transfers, teamsAndPlayers, fixtures, table;
     ImageView Profile, Logout, Transfers, TeamsAndPlayers, Fixtures, Table;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,5 +170,17 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 5000){
+            backPressedTime = t;
+            Toast.makeText(getApplicationContext(), "Press Back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, Home.class);
                         startActivity(intent);
                         finish();
-                        Toast.makeText(getApplicationContext(), "Welcome Back", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Welcome Back", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         Intent intent = new Intent(getApplicationContext(), Login.class);
