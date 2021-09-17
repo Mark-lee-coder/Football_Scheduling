@@ -41,9 +41,7 @@ public class DisplayPlayers extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String TeamName = extras.getString("TeamName");
         teamParsed.setText(TeamName);
-
-        Bundle extras1 = getIntent().getExtras();
-        String key = extras1.getString("Key");
+        String key = extras.getString("Key");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -58,7 +56,7 @@ public class DisplayPlayers extends AppCompatActivity {
                     ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
                     list.add(modelPlayers);
                 }
-                adapterPlayers = new MyAdapterPlayers(DisplayPlayers.this, list);
+                adapterPlayers = new MyAdapterPlayers(DisplayPlayers.this, list, key);
                 recyclerView.setAdapter(adapterPlayers);
                 adapterPlayers.notifyDataSetChanged();
             }
@@ -78,5 +76,7 @@ public class DisplayPlayers extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

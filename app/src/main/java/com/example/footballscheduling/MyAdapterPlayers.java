@@ -20,10 +20,12 @@ import java.util.ArrayList;
 public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyViewHolder> {
     ArrayList<ModelPlayers> mList;
     Context context;
+    String key;
 
-    public MyAdapterPlayers(Context context, ArrayList<ModelPlayers> mList){
+    public MyAdapterPlayers(Context context, ArrayList<ModelPlayers> mList, String key){
         this.mList = mList;
         this.context = context;
+        this.key = key;
     }
 
     @NonNull
@@ -50,10 +52,10 @@ public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyVi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams")./*child().*/child("Players").child(Key);
+                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child(key).child("Players").child(Key);
                         databaseReference.removeValue();
                         Toast.makeText(context, "The player has been successfully deleted from your team", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(context, DisplayPlayers.class);
+                        Intent intent = new Intent(context, TeamsAndPlayers.class);
                         context.startActivity(intent);
                     }
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {

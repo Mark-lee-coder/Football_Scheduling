@@ -1,12 +1,12 @@
 package com.example.footballscheduling;
 
 public class ModelPlayers {
-    String playerName, IDNumber, Key;
+    String playerName, idNumber, Key;
 
     public ModelPlayers(String playerName, String IDNumber, String key) {
         this.playerName = playerName;
-        this.IDNumber = IDNumber;
-        Key = key;
+        this.idNumber = idNumber;
+        this.Key = key;
     }
 
     public ModelPlayers() {
@@ -17,7 +17,7 @@ public class ModelPlayers {
     }
 
     public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+        this.idNumber = IDNumber;
     }
 
     public void setKey(String key) {
@@ -29,7 +29,7 @@ public class ModelPlayers {
     }
 
     public String getIDNumber() {
-        return IDNumber;
+        return idNumber;
     }
 
     public String getKey() {

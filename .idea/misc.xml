@@ -10,6 +10,7 @@
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_login.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_profile.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_register.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_register_team.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_teams_and_players.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_transfer_players.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_transfer_players1.xml" value="0.1721014492753623" />
@@ -17,9 +18,11 @@
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_view_players.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_view_players1.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_view_players2.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/progress_dialog.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/team_view.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/team_view1.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/team_view2.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/toolbar.xml" value="0.17481884057971014" />
       </map>
     </option>
   </component>
