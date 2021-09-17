@@ -158,7 +158,7 @@ public class Home extends AppCompatActivity {
         table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LeagueTable.class);
+                Intent intent = new Intent(Home.this, DisplayLeagueTable.class);
                 startActivity(intent);
             }
         });
@@ -166,7 +166,7 @@ public class Home extends AppCompatActivity {
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LeagueTable.class);
+                Intent intent = new Intent(Home.this, DisplayLeagueTable.class);
                 startActivity(intent);
             }
         });

@@ -11,4 +11,483 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Teams"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Played"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Won"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Lost"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Drawn"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:text="Points"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team1"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played1"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won1"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost1"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn1"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points1"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team2"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played2"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won2"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost2"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn2"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points2"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team3"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played3"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won3"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost3"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn3"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points3"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team4"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played4"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won4"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost4"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn4"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points4"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team5"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played5"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won5"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost5"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn5"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points5"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/team6"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/played6"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/won6"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/lost6"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/drawn6"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:id="@+id/points6"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:layout_marginTop="200dp"
+        android:textStyle="normal"
+        android:textColor="@color/blue"
+        android:id="@+id/edit"
+        android:text="EDIT"/>
+
 </LinearLayout>

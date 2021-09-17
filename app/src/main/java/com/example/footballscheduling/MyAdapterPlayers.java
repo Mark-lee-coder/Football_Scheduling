@@ -39,7 +39,7 @@ public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyVi
         ModelPlayers modelPlayers = mList.get(position);
         holder.PlayerName.setText(modelPlayers.getPlayerName());
         holder.IDNumber.setText(modelPlayers.getIDNumber());
-        String key = modelPlayers.getKey();
+        String Key = modelPlayers.getKey();
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class MyAdapterPlayers extends RecyclerView.Adapter<MyAdapterPlayers.MyVi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child("Players").child(key);
+                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams")./*child().*/child("Players").child(Key);
                         databaseReference.removeValue();
                         Toast.makeText(context, "The player has been successfully deleted from your team", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(context, DisplayPlayers.class);
