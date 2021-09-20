@@ -2,6 +2,7 @@ package com.example.footballscheduling;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
@@ -38,21 +37,27 @@ public class MyAdapterPlayers1 extends RecyclerView.Adapter<MyAdapterPlayers1.My
         holder.IDNumber.setText(modelPlayers.getIDNumber());
         String key = modelPlayers.getKey();
 
-        /*holder.transfer.setOnClickListener(new View.OnClickListener() {
+        holder.transfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you sure you want to delete this player? Please note that clicking YES removes this player from this team, this action cannot be undone!");
+                builder.setMessage("Are you sure you want to transfer this player?");
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child("key").child("Players").child(key);
-                        databaseReference.removeValue();
+                        Intent intent = new Intent(context, Transfers1.class);
+                        context.startActivity(intent);
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
                     }
                 });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
-        });*/
+        });
     }
 
     @Override
