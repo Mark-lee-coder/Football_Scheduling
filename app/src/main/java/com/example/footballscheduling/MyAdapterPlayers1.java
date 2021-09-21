@@ -41,7 +41,7 @@ public class MyAdapterPlayers1 extends RecyclerView.Adapter<MyAdapterPlayers1.My
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you sure you want to transfer this player?");
+                builder.setMessage("Are you sure you want to transfer this player from this team?");
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
