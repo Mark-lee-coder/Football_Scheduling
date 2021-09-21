@@ -1,16 +1,17 @@
 package com.example.footballscheduling;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder> {
@@ -42,12 +43,18 @@ public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Toast.makeText(context, "Transfer has been completed!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, Transfers.class);
+                        Activity activity = (Activity) context;
+                        activity.startActivity(intent);
                     }
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Toast.makeText(context, "Transfer has not been completed!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, Transfers.class);
+                        Activity activity = (Activity) context;
+                        activity.startActivity(intent);
                     }
                 });
                 AlertDialog alertDialog = builder.create();
