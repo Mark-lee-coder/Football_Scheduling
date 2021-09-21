@@ -3,7 +3,6 @@ package com.example.footballscheduling;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.util.TimeZone;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
@@ -143,7 +141,7 @@ public class Home extends AppCompatActivity {
         fixtures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, FixtureTeam.class);
+                Intent intent = new Intent(Home.this, Fixtures.class);
                 startActivity(intent);
             }
         });
@@ -151,7 +149,7 @@ public class Home extends AppCompatActivity {
         Fixtures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, FixtureTeam.class);
+                Intent intent = new Intent(Home.this, Fixtures.class);
                 startActivity(intent);
             }
         });

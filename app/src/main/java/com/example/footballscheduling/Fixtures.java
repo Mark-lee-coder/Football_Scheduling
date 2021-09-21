@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class FixtureTeam extends AppCompatActivity {
+public class Fixtures extends AppCompatActivity {
     Toolbar toolbar;
     TextView fixture;
     RecyclerView recyclerView;
@@ -48,7 +48,7 @@ public class FixtureTeam extends AppCompatActivity {
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
-                adapterFixtureTeam = new AdapterFixtureTeam(FixtureTeam.this, list);
+                adapterFixtureTeam = new AdapterFixtureTeam(Fixtures.this, list);
                 recyclerView.setAdapter(adapterFixtureTeam);
                 adapterFixtureTeam.notifyDataSetChanged();
             }
@@ -62,7 +62,7 @@ public class FixtureTeam extends AppCompatActivity {
         fixture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FixtureTeam.this, DisplayFixtures.class);
+                Intent intent = new Intent(Fixtures.this, DisplayFixtures.class);
                 startActivity(intent);
                 finish();
             }

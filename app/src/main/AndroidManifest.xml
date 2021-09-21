@@ -25,7 +25,7 @@
             android:exported="true" />
         <activity android:name=".LeagueTable" />
         <activity android:name=".Transfers1" />
-        <activity android:name=".FixtureTeam" />
+        <activity android:name=".Fixtures" />
         <activity android:name=".DisplayPlayers" />
         <activity android:name=".ViewPlayers" />
         <activity android:name=".RegisterPlayers" />
