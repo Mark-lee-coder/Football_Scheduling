@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder> {
@@ -31,7 +33,6 @@ public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
-        //String key = teams.getKey();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
