@@ -3,15 +3,19 @@ package com.example.footballscheduling;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -23,6 +27,7 @@ public class DisplayPlayers extends AppCompatActivity {
     private MyAdapterPlayers adapterPlayers;
     private ArrayList<ModelPlayers> list;
     Toolbar toolbar;
+    EditText search;
     TextView teamParsed;
     FloatingActionButton floatingActionButton;
 
@@ -33,6 +38,7 @@ public class DisplayPlayers extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
+        search = findViewById(R.id.inputSearch);
         teamParsed = findViewById(R.id.teamParsed);
         floatingActionButton = findViewById(R.id.player);
 
@@ -47,6 +53,8 @@ public class DisplayPlayers extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
+
+        FirebaseRecyclerOptions<PlayersRegister> options = new FirebaseRecyclerOptions.Builder<PlayersRegister>().setQuery(FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players"), PlayersRegister.class).build();
 
         Query query = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
         query.addValueEventListener(new ValueEventListener() {
@@ -67,6 +75,16 @@ public class DisplayPlayers extends AppCompatActivity {
             }
         });
 
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchInputToLower = search.getText().toString().toLowerCase();
+                String searchInputToUpper = search.getText().toString().toUpperCase();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
+                FirebaseRecyclerOptions<PlayersRegister> options = new FirebaseRecyclerOptions.Builder<PlayersRegister>().setQuery(databaseReference.orderByChild("playerName").startAt(searchInputToUpper).endAt(searchInputToLower + "\uf8ff"), PlayersRegister.class).build();
+            }
+        });
+
        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,8 +93,6 @@ public class DisplayPlayers extends AppCompatActivity {
                 intent.putExtra("Team Name", TeamName);
                 startActivity(intent);
             }
-        });
-
-
+       });
     }
 }
