@@ -2,9 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/player_transfers"
-        android:title="Delete Team"/>
-
+    <item android:id="@+id/sortByPoints"
+        android:title="Sort by points"
         app:showAsAction="withText"/>
 
 </menu>
