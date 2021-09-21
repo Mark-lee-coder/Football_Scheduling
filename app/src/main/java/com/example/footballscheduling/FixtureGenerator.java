@@ -1,11 +1,12 @@
 package com.example.footballscheduling;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class Fixtures extends AppCompatActivity {
+public class FixtureGenerator extends AppCompatActivity {
     Toolbar toolbar;
     TextView fixture;
     RecyclerView recyclerView;
@@ -48,7 +49,7 @@ public class Fixtures extends AppCompatActivity {
                     Teams model = dataSnapshot.getValue(Teams.class);
                     list.add(model);
                 }
-                adapterFixtureTeam = new AdapterFixtureTeam(Fixtures.this, list);
+                adapterFixtureTeam = new AdapterFixtureTeam(FixtureGenerator.this, list);
                 recyclerView.setAdapter(adapterFixtureTeam);
                 adapterFixtureTeam.notifyDataSetChanged();
             }
@@ -62,9 +63,23 @@ public class Fixtures extends AppCompatActivity {
         fixture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Fixtures.this, DisplayFixtures.class);
-                startActivity(intent);
-                finish();
+                int numberOfTeams = list.size();
+                if (numberOfTeams != 6){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(FixtureGenerator.this);
+                    builder.setMessage("The required number of teams is 6. Make sure you have exactly 6 teams in order to generate fixtures!");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+                else {
+                    int totalRounds = numberOfTeams - 1;
+                    int matchesPerRound = numberOfTeams / 2;
+                }
             }
         });
     }

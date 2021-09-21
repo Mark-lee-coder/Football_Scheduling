@@ -80,8 +80,10 @@ public class RegisterTeam extends AppCompatActivity {
                     ValueEventListener valueEventListener = new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            long count = snapshot.getChildrenCount();
-                            Log.d("TAG", "count= " + count);
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                long count = dataSnapshot.child("Teams").getChildrenCount();
+                                Log.d("TAG", "Count: " + count);
+                            }
                         }
 
                         @Override
