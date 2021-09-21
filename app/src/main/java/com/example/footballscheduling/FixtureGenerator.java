@@ -79,6 +79,16 @@ public class FixtureGenerator extends AppCompatActivity {
                 else {
                     int totalRounds = numberOfTeams - 1;
                     int matchesPerRound = numberOfTeams / 2;
+                    for (int round = 0; round < totalRounds; round++){
+                        for (int match = 0; match < matchesPerRound; match++){
+                            int home = (round + match) % (numberOfTeams - 1);
+                            int away = (numberOfTeams - 1 - match + round) % (numberOfTeams - 1);
+                            if (match == 0){
+                                away = numberOfTeams - 1;
+                            }
+                        }
+                    }
+
                 }
             }
         });
