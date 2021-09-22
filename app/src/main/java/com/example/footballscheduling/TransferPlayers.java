@@ -20,6 +20,7 @@ public class TransferPlayers extends AppCompatActivity {
     private ArrayList<ModelPlayers> list;
     Toolbar toolbar;
     TextView teamParsed;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +36,7 @@ public class TransferPlayers extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String TeamName = extras.getString("TeamName");
         teamParsed.setText(TeamName);
-
-        Bundle extras1 = getIntent().getExtras();
-        String key = extras1.getString("Key");
+        key = extras.getString("Key");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

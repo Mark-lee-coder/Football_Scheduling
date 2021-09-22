@@ -32,7 +32,7 @@ public class Transfers1 extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Bundle extras = getIntent().getExtras();
-        String key = extras.getString("Key");
+        String key = extras.getString("key");
 
         Intent intent = getIntent();
         HashMap<String, Object> map = (HashMap<String, Object>)intent.getSerializableExtra("map");
@@ -48,7 +48,9 @@ public class Transfers1 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Teams model = dataSnapshot.getValue(Teams.class);
-                    list.add(model);
+                    if (!model.getKey().equals(map.get("Key"))){
+                        list.add(model);
+                    }
                 }
                 adapterTeam2 = new AdapterTeam2(Transfers1.this, list, key, map);
                 recyclerView.setAdapter(adapterTeam2);

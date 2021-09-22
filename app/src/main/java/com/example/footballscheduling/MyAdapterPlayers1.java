@@ -59,6 +59,7 @@ public class MyAdapterPlayers1 extends RecyclerView.Adapter<MyAdapterPlayers1.My
                         map.put("playerName", modelPlayers.getPlayerName());
                         map.put("idNumber", modelPlayers.getIDNumber());
                         map.put("key", key);
+                        map.put("Key", Key);
                         Intent intent = new Intent(context, Transfers1.class);
                         intent.putExtra("map", map);
                         context.startActivity(intent);
