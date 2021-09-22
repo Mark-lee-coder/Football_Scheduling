@@ -17,6 +17,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FixtureGenerator extends AppCompatActivity {
     Toolbar toolbar;
@@ -77,9 +79,32 @@ public class FixtureGenerator extends AppCompatActivity {
                     alertDialog.show();
                 }
                 else {
-
+                    new FixturesGenerator<>();
                 }
             }
         });
+    }
+    public class FixturesGenerator<T extends Object>{
+        public List<List<Fixture<T>>> getFixtures(List<T> teams){
+            int numberOfTeams = teams.size();
+            int totalRounds = numberOfTeams - 1;
+            int matchesPerRound = numberOfTeams / 2;
+            List<List<Fixture<T>>> rounds = new LinkedList<List<Fixture<T>>>();
+
+            for (int round = 0; round < totalRounds; round++){
+                List<Fixture<T>> fixtures = new LinkedList<Fixture<T>>();
+                for (int match = 0; match < matchesPerRound; match++){
+                    int home = (round + match) % (numberOfTeams - 1);
+                    int away = (numberOfTeams - 1 - match + round) % (numberOfTeams - 1);
+
+                    if (match == 0){
+                        away = numberOfTeams - 1;
+                    }
+                    fixtures.add(new Fixture<T>(teams.get(home), teams.get(away)));
+                }
+                rounds.add(fixtures);
+            }
+            return rounds;
+        }
     }
 }

@@ -6,8 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LeagueTable extends AppCompatActivity {
     Toolbar toolbar;
@@ -56,5 +64,28 @@ public class LeagueTable extends AppCompatActivity {
                     finish();
             }
         });
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Teams");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                showData(snapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void showData(DataSnapshot snapshot){
+        for (DataSnapshot ds: snapshot.getChildren()){
+            Teams teams = new Teams();
+            teams.setTeamName(ds.child("Teams").getValue(Teams.class).getTeamName());
+            team1.setText(teams.getTeamName());
+            team2.setText(teams.getTeamName());
+            team3.setText(teams.getTeamName());
+            team4.setText(teams.getTeamName());
+        }
     }
 }
