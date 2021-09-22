@@ -94,36 +94,34 @@ public class RegisterTeam extends AppCompatActivity {
                     databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.getValue()!= null){
-                                snapshot.getChildrenCount();
-                                if (snapshot.getChildrenCount() > 4){
-                                    progressDialog.dismiss();
-                                    Toast.makeText(getApplicationContext(), "You cannot register more than 4 teams", Toast.LENGTH_LONG).show();
-                                    teamName.setText("");
-                                }
-                                else {
-                                    TeamRegister teamRegister = new TeamRegister(TeamName);
-                                    databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
-                                        @Override
-                                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                           String key = ref.getKey();
-                                           DatabaseReference reference = databaseReference.child(key);
-                                           reference.child("key").setValue(key).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                               @Override
-                                               public void onComplete(@NonNull Task<Void> task) {
-                                                  if (task.isSuccessful()){
-                                                      progressDialog.dismiss();
-                                                      Toast.makeText(getApplicationContext(), "Your team has been registered successfully", Toast.LENGTH_LONG).show();
-                                                      Intent intent = new Intent(RegisterTeam.this, TeamsAndPlayers.class);
-                                                      startActivity(intent);
-                                                      finish();
-                                                  }
-                                               }
-                                           });
-                                        }
-                                    });
-                                }
+                            if (snapshot.getChildrenCount() >= 4){
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), "You cannot register more than 4 teams", Toast.LENGTH_LONG).show();
+                                teamName.setText("");
                             }
+                            else {
+                                TeamRegister teamRegister = new TeamRegister(TeamName);
+                                databaseReference.push().setValue(teamRegister, new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                       String key = ref.getKey();
+                                       DatabaseReference reference = databaseReference.child(key);
+                                       reference.child("key").setValue(key).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                           @Override
+                                           public void onComplete(@NonNull Task<Void> task) {
+                                              if (task.isSuccessful()){
+                                                  progressDialog.dismiss();
+                                                  Toast.makeText(getApplicationContext(), "Your team has been registered successfully", Toast.LENGTH_LONG).show();
+                                                  Intent intent = new Intent(RegisterTeam.this, TeamsAndPlayers.class);
+                                                  startActivity(intent);
+                                                  finish();
+                                              }
+                                           }
+                                       });
+                                    }
+                                });
+                            }
+
                         }
 
                         @Override
