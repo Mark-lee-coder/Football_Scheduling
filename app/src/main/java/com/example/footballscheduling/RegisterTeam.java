@@ -96,7 +96,7 @@ public class RegisterTeam extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.getChildrenCount() >= 4){
                                 progressDialog.dismiss();
-                                Toast.makeText(getApplicationContext(), "You cannot register more than 4 teams", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "You cannot register more than 4 teams!", Toast.LENGTH_LONG).show();
                                 teamName.setText("");
                             }
                             else {

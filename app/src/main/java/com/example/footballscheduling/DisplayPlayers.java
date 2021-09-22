@@ -75,15 +75,7 @@ public class DisplayPlayers extends AppCompatActivity {
             }
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String searchInputToLower = search.getText().toString().toLowerCase();
-                String searchInputToUpper = search.getText().toString().toUpperCase();
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
-                FirebaseRecyclerOptions<PlayersRegister> options = new FirebaseRecyclerOptions.Builder<PlayersRegister>().setQuery(databaseReference.orderByChild("playerName").startAt(searchInputToUpper).endAt(searchInputToLower + "\uf8ff"), PlayersRegister.class).build();
-            }
-        });
+
 
        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
