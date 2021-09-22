@@ -88,7 +88,6 @@ public class FixtureGenerator extends AppCompatActivity {
                             }
                         }
                     }
-
                 }
             }
         });

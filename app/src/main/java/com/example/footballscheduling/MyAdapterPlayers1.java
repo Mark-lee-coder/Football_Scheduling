@@ -11,16 +11,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MyAdapterPlayers1 extends RecyclerView.Adapter<MyAdapterPlayers1.MyViewHolder> {
     ArrayList<ModelPlayers> mList;
     Context context;
+    String Key;
 
-    public MyAdapterPlayers1(Context context, ArrayList<ModelPlayers> mList){
+    public MyAdapterPlayers1(Context context, ArrayList<ModelPlayers> mList, String Key){
         this.mList = mList;
         this.context = context;
+        this.Key = Key;
     }
 
     @NonNull
@@ -41,11 +48,19 @@ public class MyAdapterPlayers1 extends RecyclerView.Adapter<MyAdapterPlayers1.My
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you sure you want to transfer this player from this team?");
+                builder.setMessage("Are you sure you want to transfer this player from this team? Please note that clicking YES will remove the player from this team permanently! THIS ACTION CANNOT BE UNDONE!");
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child(Key).child("Players").child(key);
+                        databaseReference.removeValue();
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("playerName", modelPlayers.getPlayerName());
+                        map.put("idNumber", modelPlayers.getIDNumber());
+                        map.put("key", key);
                         Intent intent = new Intent(context, Transfers1.class);
+                        intent.putExtra("map", map);
                         context.startActivity(intent);
                     }
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {

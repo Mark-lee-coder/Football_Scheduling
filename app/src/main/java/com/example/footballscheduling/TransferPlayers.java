@@ -52,7 +52,7 @@ public class TransferPlayers extends AppCompatActivity {
                     ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
                     list.add(modelPlayers);
                 }
-                adapterPlayers1 = new MyAdapterPlayers1(TransferPlayers.this, list);
+                adapterPlayers1 = new MyAdapterPlayers1(TransferPlayers.this, list, key);
                 recyclerView.setAdapter(adapterPlayers1);
                 adapterPlayers1.notifyDataSetChanged();
             }
