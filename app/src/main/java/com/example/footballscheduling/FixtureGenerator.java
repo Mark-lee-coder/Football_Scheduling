@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
@@ -84,6 +85,7 @@ public class FixtureGenerator extends AppCompatActivity {
             }
         });
     }
+
     public class FixturesGenerator<T extends Object>{
         public List<List<Fixture<T>>> getFixtures(List<T> teams){
             int numberOfTeams = teams.size();
