@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -107,6 +108,7 @@ public class FixtureGenerator extends AppCompatActivity {
                 rounds.add(fixtures);
             }
             return rounds;
+            //Log.i(Tag, "Fixtures", +rounds);
         }
     }
 }

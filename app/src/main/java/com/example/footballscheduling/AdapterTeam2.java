@@ -60,7 +60,7 @@ public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
                                     Toast.makeText(context, "Transfer has been completed!", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(context, Transfers.class);
+                                    Intent intent = new Intent(context, TeamsAndPlayers.class);
                                     Activity activity = (Activity) context;
                                     activity.startActivity(intent);
                                 }

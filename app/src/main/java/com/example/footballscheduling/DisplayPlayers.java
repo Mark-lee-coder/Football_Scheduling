@@ -2,6 +2,8 @@ package com.example.footballscheduling;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -21,11 +22,14 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayPlayers extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MyAdapterPlayers adapterPlayers;
     private ArrayList<ModelPlayers> list;
+    List<ModelPlayers> modelPlayersList;
+    String keyword = null;
     Toolbar toolbar;
     EditText search;
     TextView teamParsed;
@@ -75,7 +79,28 @@ public class DisplayPlayers extends AppCompatActivity {
             }
         });
 
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                keyword = charSequence.toString().toLowerCase();
+                modelPlayersList.clear();
+                adapterPlayers.notifyDataSetChanged();
+                searchPlayers();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                keyword = editable.toString().toLowerCase();
+                modelPlayersList.clear();
+                adapterPlayers.notifyDataSetChanged();
+                searchPlayers();
+            }
+        });
 
        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,5 +111,27 @@ public class DisplayPlayers extends AppCompatActivity {
                 startActivity(intent);
             }
        });
+    }
+
+    public void searchPlayers(){
+        /*FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child(Key).child("Players");
+        String Search = search.toString().trim();
+        Query query = databaseReference.orderByChild("PlayerName").equalTo(Search);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot snap : snapshot.getChildren()){
+                        ModelPlayers modelPlayers = snap.getValue(ModelPlayers.class);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
     }
 }
