@@ -7,20 +7,25 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class FixtureGenerator extends AppCompatActivity {
     Toolbar toolbar;
@@ -28,11 +33,12 @@ public class FixtureGenerator extends AppCompatActivity {
     RecyclerView recyclerView;
     private AdapterFixtureTeam adapterFixtureTeam;
     private ArrayList<Teams> list;
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fixture_team);
+        setContentView(R.layout.activity_fixture_generator);
 
         toolbar = findViewById(R.id.toolbar);
         fixture = findViewById(R.id.fixture);
@@ -81,21 +87,43 @@ public class FixtureGenerator extends AppCompatActivity {
                     alertDialog.show();
                 }
                 else {
-                    new FixturesGenerator<>();
+                    FixturesGenerator<Teams> fixturesGenerator = new FixturesGenerator<>();
+                    List<List<Fixture<Teams>>> rounds = fixturesGenerator.getFixtures(list);
+
+                    DatabaseReference fixturesRef = firebaseDatabase.getReference().child("Fixtures");
+                    for (List<Fixture<Teams>> round : rounds) {
+                        DatabaseReference roundReference = fixturesRef.push();
+                        String roundKey = roundReference.getKey();
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("key", roundKey);
+                        roundReference.setValue(map);
+                        for (Fixture<Teams> fixture1 : round) {
+                            Map<String, Object> map1 = new HashMap<>();
+                            map1.put("home", fixture1.getHomeTeam().getTeamName());
+                            map1.put("away", fixture1.getAwayTeam().getTeamName());
+                            roundReference.push().setValue(map1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                }
+                            });
+                            //Log.i("myTag", fixture1.getHomeTeam().getTeamName() + " vs " + fixture1.getAwayTeam().getTeamName());
+                        }
+                    }
                 }
             }
         });
     }
 
-    public class FixturesGenerator<T extends Object>{
-        public List<List<Fixture<T>>> getFixtures(List<T> teams){
+    public class FixturesGenerator<Teams>{
+        public List<List<Fixture<Teams>>> getFixtures(ArrayList<Teams> teams){
             int numberOfTeams = teams.size();
             int totalRounds = numberOfTeams - 1;
             int matchesPerRound = numberOfTeams / 2;
-            List<List<Fixture<T>>> rounds = new LinkedList<List<Fixture<T>>>();
+            List<List<Fixture<Teams>>> rounds = new LinkedList<List<Fixture<Teams>>>();
 
             for (int round = 0; round < totalRounds; round++){
-                List<Fixture<T>> fixtures = new LinkedList<Fixture<T>>();
+                List<Fixture<Teams>> fixtures = new LinkedList<Fixture<Teams>>();
                 for (int match = 0; match < matchesPerRound; match++){
                     int home = (round + match) % (numberOfTeams - 1);
                     int away = (numberOfTeams - 1 - match + round) % (numberOfTeams - 1);
@@ -103,12 +131,11 @@ public class FixtureGenerator extends AppCompatActivity {
                     if (match == 0){
                         away = numberOfTeams - 1;
                     }
-                    fixtures.add(new Fixture<T>(teams.get(home), teams.get(away)));
+                    fixtures.add(new Fixture<Teams>(teams.get(home), teams.get(away)));
                 }
                 rounds.add(fixtures);
             }
             return rounds;
-            //Log.i(Tag, "Fixtures", +rounds);
         }
     }
 }
