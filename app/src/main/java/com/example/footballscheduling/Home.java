@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
@@ -157,7 +156,7 @@ public class Home extends AppCompatActivity {
         table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, DisplayLeagueTable.class);
+                Intent intent = new Intent(Home.this, LeagueTable.class);
                 startActivity(intent);
             }
         });
@@ -165,7 +164,7 @@ public class Home extends AppCompatActivity {
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, DisplayLeagueTable.class);
+                Intent intent = new Intent(Home.this, LeagueTable.class);
                 startActivity(intent);
             }
         });

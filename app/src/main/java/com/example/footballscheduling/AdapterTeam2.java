@@ -55,7 +55,12 @@ public class AdapterTeam2 extends RecyclerView.Adapter<AdapterTeam2.MyViewHolder
                     public void onClick(DialogInterface dialogInterface, int i) {
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference = firebaseDatabase.getReference().child("Teams").child(Key).child("Players");
-                        databaseReference.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        map.remove("Key");
+                        map.remove("key");
+                        DatabaseReference reference = databaseReference.push();
+                        String playerKey = reference.getKey();
+                        map.put("key", playerKey);
+                        reference.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +20,6 @@ import java.util.ArrayList;
 public class TeamsAndPlayers extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
-    EditText search;
     private AdapterTeam adapterTeam;
     private ArrayList<Teams> list;
     FloatingActionButton floatingActionButton;
@@ -34,7 +32,6 @@ public class TeamsAndPlayers extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
         floatingActionButton = findViewById(R.id.team);
-        search = findViewById(R.id.inputSearch);
 
         setSupportActionBar(toolbar);
 
