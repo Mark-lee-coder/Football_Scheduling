@@ -69,7 +69,5 @@ public class TeamsAndPlayers extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }
