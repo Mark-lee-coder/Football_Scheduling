@@ -91,17 +91,16 @@ public class FixtureGenerator extends AppCompatActivity {
                     List<List<Fixture<Teams>>> rounds = fixturesGenerator.getFixtures(list);
 
                     DatabaseReference fixturesRef = firebaseDatabase.getReference().child("Fixtures");
+                    int roundCounter = 1;
+                    int matchCounter = 1;
                     for (List<Fixture<Teams>> round : rounds) {
-                        DatabaseReference roundReference = fixturesRef.push();
-                        String roundKey = roundReference.getKey();
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("key", roundKey);
-                        roundReference.setValue(map);
+                        matchCounter = 1;
+                        DatabaseReference roundReference = fixturesRef.child("round" + roundCounter);
                         for (Fixture<Teams> fixture1 : round) {
                             Map<String, Object> map1 = new HashMap<>();
                             map1.put("home", fixture1.getHomeTeam().getTeamName());
                             map1.put("away", fixture1.getAwayTeam().getTeamName());
-                            roundReference.push().setValue(map1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            roundReference.child("match" + matchCounter).setValue(map1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(getApplicationContext(), "Fixtures generated successfully", Toast.LENGTH_LONG).show();
@@ -110,8 +109,10 @@ public class FixtureGenerator extends AppCompatActivity {
                                     finish();
                                 }
                             });
+                            matchCounter += 1;
                             //Log.i("myTag", fixture1.getHomeTeam().getTeamName() + " vs " + fixture1.getAwayTeam().getTeamName());
                         }
+                        roundCounter += 1;
                     }
                 }
             }

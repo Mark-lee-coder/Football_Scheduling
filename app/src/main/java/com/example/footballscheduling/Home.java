@@ -140,7 +140,7 @@ public class Home extends AppCompatActivity {
         fixtures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, FixtureGenerator.class);
+                Intent intent = new Intent(Home.this, DisplayFixtures.class);
                 startActivity(intent);
             }
         });
@@ -148,7 +148,7 @@ public class Home extends AppCompatActivity {
         Fixtures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, FixtureGenerator.class);
+                Intent intent = new Intent(Home.this, DisplayFixtures.class);
                 startActivity(intent);
             }
         });
