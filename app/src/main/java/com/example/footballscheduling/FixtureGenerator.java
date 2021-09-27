@@ -76,7 +76,7 @@ public class FixtureGenerator extends AppCompatActivity {
                 int numberOfTeams = list.size();
                 if (numberOfTeams != 6){
                     AlertDialog.Builder builder = new AlertDialog.Builder(FixtureGenerator.this);
-                    builder.setMessage("The required number of teams is 8. Make sure you have exactly 6 teams in order to generate fixtures!");
+                    builder.setMessage("The required number of teams is 6. Make sure you have exactly 6 teams in order to generate fixtures!");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -92,9 +92,8 @@ public class FixtureGenerator extends AppCompatActivity {
 
                     DatabaseReference fixturesRef = firebaseDatabase.getReference().child("Fixtures");
                     int roundCounter = 1;
-                    int matchCounter = 1;
                     for (List<Fixture<Teams>> round : rounds) {
-                        matchCounter = 1;
+                        int matchCounter = 1;
                         DatabaseReference roundReference = fixturesRef.child("round" + roundCounter);
                         for (Fixture<Teams> fixture1 : round) {
                             Map<String, Object> map1 = new HashMap<>();
