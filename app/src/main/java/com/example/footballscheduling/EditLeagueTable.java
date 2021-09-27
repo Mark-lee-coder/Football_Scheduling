@@ -12,14 +12,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DisplayLeagueTable extends AppCompatActivity {
+public class EditLeagueTable extends AppCompatActivity {
     Toolbar toolbar;
     TextView edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_league_table);
+        setContentView(R.layout.activity_edit_league_table);
 
         toolbar = findViewById(R.id.toolbar);
         edit = findViewById(R.id.edit);
@@ -29,7 +29,7 @@ public class DisplayLeagueTable extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DisplayLeagueTable.this, LeagueTable.class);
+                Intent intent = new Intent(EditLeagueTable.this, LeagueTable.class);
                 startActivity(intent);
                 finish();
             }
