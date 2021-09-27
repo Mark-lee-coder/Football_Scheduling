@@ -31,6 +31,8 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
         ArrayList<Map> round = mList.get(position);
         Map<String, Object> match1 = round.get(0);
         Map<String, Object> match2 = round.get(1);
+        Map<String, Object> match3 = round.get(2);
+        Map<String, Object> match4 = round.get(3);
 
         holder.round.setText("Round " + (position + 1));
 
@@ -38,6 +40,10 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
         holder.team2.setText(match1.get("away").toString());
         holder.team3.setText(match2.get("home").toString());
         holder.team4.setText(match2.get("away").toString());
+        holder.team5.setText(match3.get("home").toString());
+        holder.team6.setText(match3.get("away").toString());
+        holder.team7.setText(match4.get("home").toString());
+        holder.team8.setText(match4.get("away").toString());
     }
 
     @Override
@@ -47,7 +53,7 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView team1, team2, team3, team4, round;
+        TextView team1, team2, team3, team4, team5, team6, team7, team8, round;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,6 +62,10 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
             team2 = itemView.findViewById(R.id.team2);
             team3 = itemView.findViewById(R.id.team3);
             team4 = itemView.findViewById(R.id.team4);
+            team5 = itemView.findViewById(R.id.team5);
+            team6 = itemView.findViewById(R.id.team6);
+            team7 = itemView.findViewById(R.id.team7);
+            team8 = itemView.findViewById(R.id.team8);
             round = itemView.findViewById(R.id.round);
         }
     }

@@ -74,9 +74,9 @@ public class FixtureGenerator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int numberOfTeams = list.size();
-                if (numberOfTeams != 4){
+                if (numberOfTeams != 8){
                     AlertDialog.Builder builder = new AlertDialog.Builder(FixtureGenerator.this);
-                    builder.setMessage("The required number of teams is 4. Make sure you have exactly 4 teams in order to generate fixtures!");
+                    builder.setMessage("The required number of teams is 8. Make sure you have exactly 8 teams in order to generate fixtures!");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -110,7 +110,6 @@ public class FixtureGenerator extends AppCompatActivity {
                                 }
                             });
                             matchCounter += 1;
-                            //Log.i("myTag", fixture1.getHomeTeam().getTeamName() + " vs " + fixture1.getAwayTeam().getTeamName());
                         }
                         roundCounter += 1;
                     }
