@@ -18,16 +18,12 @@
         <TableRow>
 
             <TextView
-                android:text="Name"
+                android:text="NAME"
                 android:id="@+id/team_title"/>
 
             <TextView
-                android:text="P "
-                android:gravity="right"
-                android:id="@+id/team_played" />
-
-            <TextView
                 android:text="W"
+                android:gravity="right"
                 android:id="@+id/team_won"/>
 
             <TextView
