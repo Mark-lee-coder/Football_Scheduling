@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +23,7 @@ public class DisplayFixtures extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<ArrayList<Map>>  list;
     Toolbar toolbar;
-    TextView fixture;
+    FloatingActionButton fixture;
 
     @Override
     public void onBackPressed() {
@@ -39,7 +39,7 @@ public class DisplayFixtures extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
-        fixture = findViewById(R.id.fixture);
+        fixture = findViewById(R.id.generateFixtures);
 
         setSupportActionBar(toolbar);
 
