@@ -74,9 +74,9 @@ public class FixtureGenerator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int numberOfTeams = list.size();
-                if (numberOfTeams != 8){
+                if (numberOfTeams != 6){
                     AlertDialog.Builder builder = new AlertDialog.Builder(FixtureGenerator.this);
-                    builder.setMessage("The required number of teams is 8. Make sure you have exactly 8 teams in order to generate fixtures!");
+                    builder.setMessage("The required number of teams is 8. Make sure you have exactly 6 teams in order to generate fixtures!");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
