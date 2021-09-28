@@ -1,295 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditLeagueTable"
-    android:orientation="vertical">
+    tools:context=".DisplayPlayers" >
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:text="Teams"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:text="Won"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp" />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:text="Lost"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp" />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:text="Drawn"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp" />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:text="Points"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_column="1"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:id="@+id/Team1"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Won1"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Lost1"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Drawn1"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Points1"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_column="1"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:id="@+id/Team2"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Won2"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Lost2"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Drawn2"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Points2"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_column="1"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:id="@+id/Team3"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Won3"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Lost3"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Drawn3"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Points3"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_column="1"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:id="@+id/Team4"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Won4"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Lost4"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Drawn4"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"/>
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:inputType="number"
-                android:id="@+id/Points4"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"/>
-
-        </TableRow>
-
-    </TableLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25sp"
-        android:layout_marginTop="200dp"
-        android:textStyle="normal"
-        android:textColor="@color/blue"
-        android:id="@+id/edit"
-        android:text="EDIT"/>
+        android:orientation="vertical">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
