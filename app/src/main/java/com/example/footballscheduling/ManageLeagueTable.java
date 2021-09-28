@@ -24,7 +24,7 @@ public class ManageLeagueTable extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ManageLeagueTable.this, Home.class);
+        Intent intent = new Intent(ManageLeagueTable.this, DisplayFixtures.class);
         startActivity(intent);
         finish();
     }
