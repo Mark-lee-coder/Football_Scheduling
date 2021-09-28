@@ -32,17 +32,6 @@ public class AdapterLeagueTableTeam extends RecyclerView.Adapter<AdapterLeagueTa
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String key = teams.getKey();
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ManageLeagueTable.class);
-                intent.putExtra("TeamName", teams.getTeamName());
-                intent.putExtra("Key", key);
-                Activity activity = (Activity) context;
-                activity.startActivity(intent);
-            }
-        });
     }
 
     @Override
