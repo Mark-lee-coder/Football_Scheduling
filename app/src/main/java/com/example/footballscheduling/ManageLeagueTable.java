@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditLeagueTable extends AppCompatActivity {
+public class ManageLeagueTable extends AppCompatActivity {
     private AdapterResults adapterResults;
     private RecyclerView recyclerView;
     private ArrayList<ArrayList<Map>>  list;
@@ -24,7 +24,7 @@ public class EditLeagueTable extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(EditLeagueTable.this, Home.class);
+        Intent intent = new Intent(ManageLeagueTable.this, Home.class);
         startActivity(intent);
         finish();
     }
@@ -32,7 +32,7 @@ public class EditLeagueTable extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_league_table);
+        setContentView(R.layout.activity_manage_league_table);
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
@@ -58,7 +58,7 @@ public class EditLeagueTable extends AppCompatActivity {
                     }
                     list.add(matches);
                 }
-                adapterResults = new AdapterResults(EditLeagueTable.this, list);
+                adapterResults = new AdapterResults(ManageLeagueTable.this, list);
                 recyclerView.setAdapter(adapterResults);
                 adapterResults.notifyDataSetChanged();
             }

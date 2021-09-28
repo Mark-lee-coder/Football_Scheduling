@@ -47,7 +47,7 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, EditLeagueTable.class);
+                Intent intent = new Intent(context, ManageLeagueTable.class);
                 Activity activity = (Activity) context;
                 activity.startActivity(intent);
             }

@@ -15,7 +15,7 @@
             android:name=".DisplayFixtures"
             android:exported="true" />
         <activity
-            android:name=".EditLeagueTable"
+            android:name=".ManageLeagueTable"
             android:exported="true" />
         <activity
             android:name=".TransferPlayers"
