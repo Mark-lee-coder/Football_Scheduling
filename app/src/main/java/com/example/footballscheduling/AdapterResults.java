@@ -33,6 +33,9 @@ public class AdapterResults extends RecyclerView.Adapter<AdapterResults.MyViewHo
         Map<String, Object> match1 = round.get(0);
         Map<String, Object> match2 = round.get(1);
         Map<String, Object> match3 = round.get(2);
+        Map<String, Object> match4 = round.get(3);
+
+        holder.round.setText("Round " + (position + 1));
 
         holder.team1.setText(match1.get("home").toString());
         holder.team2.setText(match1.get("away").toString());
@@ -40,6 +43,8 @@ public class AdapterResults extends RecyclerView.Adapter<AdapterResults.MyViewHo
         holder.team4.setText(match2.get("away").toString());
         holder.team5.setText(match3.get("home").toString());
         holder.team6.setText(match3.get("away").toString());
+        holder.team7.setText(match4.get("home").toString());
+        holder.team8.setText(match4.get("away").toString());
     }
 
     @Override
@@ -49,8 +54,8 @@ public class AdapterResults extends RecyclerView.Adapter<AdapterResults.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView team1, team2, team3, team4, team5, team6;
-        EditText result1, result2, result3, result4, result5, result6;
+        TextView team1, team2, team3, team4, team5, team6, team7, team8, round;
+        EditText result1, result2, result3, result4, result5, result6, result7, result8;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,12 +66,17 @@ public class AdapterResults extends RecyclerView.Adapter<AdapterResults.MyViewHo
             team4 = itemView.findViewById(R.id.team4);
             team5 = itemView.findViewById(R.id.team5);
             team6 = itemView.findViewById(R.id.team6);
+            team7 = itemView.findViewById(R.id.team7);
+            team8 = itemView.findViewById(R.id.team8);
             result1 = itemView.findViewById(R.id.result1);
             result2 = itemView.findViewById(R.id.result2);
             result3 = itemView.findViewById(R.id.result3);
             result4 = itemView.findViewById(R.id.result4);
             result5 = itemView.findViewById(R.id.result5);
             result6 = itemView.findViewById(R.id.result6);
+            result7 = itemView.findViewById(R.id.result7);
+            result8 = itemView.findViewById(R.id.result8);
+            round = itemView.findViewById(R.id.round);
         }
     }
 }

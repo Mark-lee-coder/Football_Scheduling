@@ -40,10 +40,12 @@ public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterTeam.MyViewH
     }
 
     public  static  class  MyViewHolder extends RecyclerView.ViewHolder {
+
         TextView TeamName;
 
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
+
             TeamName = itemView.findViewById(R.id.teamName);
         }
     }

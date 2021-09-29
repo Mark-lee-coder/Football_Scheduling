@@ -44,6 +44,10 @@ public class ManageLeagueTable extends AppCompatActivity {
 
         list = new ArrayList<>();
 
+        Bundle extras = getIntent().getExtras();
+        String round = extras.getString("Round");
+
+
         Query query = FirebaseDatabase.getInstance().getReference().child("Fixtures");
         query.addValueEventListener(new ValueEventListener() {
             @Override
