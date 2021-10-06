@@ -153,21 +153,19 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        /*table.setOnClickListener(new View.OnClickListener() {
+        table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LeagueTable.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();
             }
         });
 
         Table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, LeagueTable.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
     }
 
     @Override

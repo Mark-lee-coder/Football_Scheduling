@@ -31,7 +31,6 @@ public class AdapterFixtureTeam extends RecyclerView.Adapter<AdapterTeam.MyViewH
     public void onBindViewHolder(@NonNull @NotNull AdapterTeam.MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
-        String Key = teams.getKey();
     }
 
     @Override
