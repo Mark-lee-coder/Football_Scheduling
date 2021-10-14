@@ -1,6 +1,7 @@
 package com.example.footballscheduling;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,10 +46,11 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
         holder.team7.setText(match4.get("home").toString());
         holder.team8.setText(match4.get("away").toString());
 
-        holder.team1.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, DisplayTeamFixtures.class);
+                context.startActivity(intent);
             }
         });
     }

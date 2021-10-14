@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballScheduling">
         <activity
+            android:name=".DisplayTeamFixtures"
+            android:exported="true" />
+        <activity
             android:name=".DisplayFixtures"
             android:exported="true" />
         <activity
