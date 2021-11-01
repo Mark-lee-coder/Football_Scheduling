@@ -102,7 +102,7 @@ public class FixtureGenerator extends AppCompatActivity {
                             roundReference.child("match" + matchCounter).setValue(map1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Toast.makeText(getApplicationContext(), "Fixtures generated successfully", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Fixtures generated successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(FixtureGenerator.this, DisplayFixtures.class);
                                     startActivity(intent);
                                     finish();

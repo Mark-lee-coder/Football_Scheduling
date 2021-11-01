@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,38 +15,45 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class DisplayTeamFixtures extends AppCompatActivity {
+public class DisplayFixturePlayers extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private MyAdapterFixturePlayers adapterFixturePlayers;
+    private ArrayList<ModelPlayers> list;
     Toolbar toolbar;
-    RecyclerView recyclerView;
-    private AdapterTeamFixtures adapterTeamFixtures;
-    private ArrayList<Teams> list;
+    TextView teamParsed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_team_fixtures);
+        setContentView(R.layout.activity_display_fixture_players);
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
+        teamParsed = findViewById(R.id.teamParsed);
 
         setSupportActionBar(toolbar);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        Bundle extras = getIntent().getExtras();
+        String TeamName = extras.getString("TeamName");
+        teamParsed.setText(TeamName);
+        String key = extras.getString("Key");
+
         recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("Teams");
+        Query query = FirebaseDatabase.getInstance().getReference().child("Teams").child(key).child("Players");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Teams model = dataSnapshot.getValue(Teams.class);
-                    list.add(model);
+                    ModelPlayers modelPlayers = dataSnapshot.getValue(ModelPlayers.class);
+                    list.add(modelPlayers);
                 }
-                adapterTeamFixtures = new AdapterTeamFixtures(DisplayTeamFixtures.this, list);
-                recyclerView.setAdapter(adapterTeamFixtures);
-                adapterTeamFixtures.notifyDataSetChanged();
+                adapterFixturePlayers = new MyAdapterFixturePlayers(DisplayFixturePlayers.this, list, key);
+                recyclerView.setAdapter(adapterFixturePlayers);
+                adapterFixturePlayers.notifyDataSetChanged();
             }
 
             @Override
