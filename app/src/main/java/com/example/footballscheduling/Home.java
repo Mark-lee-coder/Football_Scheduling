@@ -156,14 +156,16 @@ public class Home extends AppCompatActivity {
         matchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Home.this, DisplayTeamFixtures.class);
+                startActivity(intent);
             }
         });
 
         MatchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Home.this, DisplayTeamFixtures.class);
+                startActivity(intent);
             }
         });
     }
@@ -173,7 +175,7 @@ public class Home extends AppCompatActivity {
         long t = System.currentTimeMillis();
         if (t - backPressedTime > 5000){
             backPressedTime = t;
-            Toast.makeText(getApplicationContext(), "Press Back again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Press Back again to exit!", Toast.LENGTH_SHORT).show();
         }
         else {
             super.onBackPressed();

@@ -45,14 +45,6 @@ public class AdapterFixtures extends RecyclerView.Adapter<AdapterFixtures.MyView
         holder.team6.setText(match3.get("away").toString());
         holder.team7.setText(match4.get("home").toString());
         holder.team8.setText(match4.get("away").toString());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, DisplayTeamFixtures.class);
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
