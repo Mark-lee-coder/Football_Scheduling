@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     Toolbar toolbar;
-    TextView profile, logout, transfers, teamsAndPlayers, fixtures, table;
-    ImageView Profile, Logout, Transfers, TeamsAndPlayers, Fixtures, Table;
+    TextView profile, logout, transfers, teamsAndPlayers, fixtures, matchReporting;
+    ImageView Profile, Logout, Transfers, TeamsAndPlayers, Fixtures, MatchReporting;
     private long backPressedTime = 0;
 
     @Override
@@ -29,13 +29,13 @@ public class Home extends AppCompatActivity {
         transfers = findViewById(R.id.tvTransfers);
         teamsAndPlayers = findViewById(R.id.tvTeams);
         fixtures = findViewById(R.id.tvFixtures);
-        table = findViewById(R.id.tvLTable);
+        matchReporting = findViewById(R.id.tvMReporting);
         Profile = findViewById(R.id.ivProfile);
         Logout = findViewById(R.id.ivLogoutButton);
         Transfers = findViewById(R.id.ivTransfers);
         TeamsAndPlayers = findViewById(R.id.ivTeams);
         Fixtures = findViewById(R.id.ivFixtures);
-        Table = findViewById(R.id.ivLTable);
+        MatchReporting = findViewById(R.id.ivMReporting);
 
         setSupportActionBar(toolbar);
 
@@ -153,14 +153,14 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        table.setOnClickListener(new View.OnClickListener() {
+        matchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();
             }
         });
 
-        Table.setOnClickListener(new View.OnClickListener() {
+        MatchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Not Available!", Toast.LENGTH_LONG).show();

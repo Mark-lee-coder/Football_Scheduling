@@ -175,26 +175,26 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/ivLTable"
+                android:id="@+id/ivMReporting"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="45dp"
                 android:padding="0dp"
-                android:src="@drawable/table" />
+                android:src="@drawable/match_reporting" />
 
             <TextView
-                android:id="@+id/tvLTable"
+                android:id="@+id/tvMReporting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="95dp"
-                android:layout_marginLeft="95dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginLeft="75dp"
                 android:layout_marginTop="150dp"
-                android:text="LEAGUE TABLE"
+                android:text="MATCH REPORTING"
                 android:textColor="@color/black"
-                android:textStyle="normal"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="normal" />
 
         </RelativeLayout>
 
