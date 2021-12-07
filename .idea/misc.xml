@@ -6,8 +6,10 @@
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_adapter_team_fixtures.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_fixture_players.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_fixtures.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_fixtures1.xml" value="0.22056159420289856" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_league_table.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_players.xml" value="0.19882246376811594" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_players1.xml" value="0.21557971014492755" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_display_team_fixtures.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_edit_league_table.xml" value="0.19157608695652173" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_fixture_generator.xml" value="0.20833333333333334" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_register_players.xml" value="0.19157608695652173" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_register_team.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_teams_and_players.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_teams_and_players1.xml" value="0.22056159420289856" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_transfer_players.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_transfer_players1.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LEONE/AndroidStudioProjects/FootballScheduling/app/src/main/res/layout/activity_transfers.xml" value="0.1721014492753623" />

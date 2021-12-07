@@ -156,7 +156,7 @@ public class Home extends AppCompatActivity {
         matchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, DisplayTeamFixtures.class);
+                Intent intent = new Intent(Home.this, com.example.footballscheduling.MatchReporting.class);
                 startActivity(intent);
             }
         });
@@ -164,7 +164,7 @@ public class Home extends AppCompatActivity {
         MatchReporting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, DisplayTeamFixtures.class);
+                Intent intent = new Intent(Home.this, com.example.footballscheduling.MatchReporting.class);
                 startActivity(intent);
             }
         });

@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballScheduling">
         <activity
+            android:name=".DisplayPlayers1"
+            android:exported="false" />
+        <activity
+            android:name=".TeamsAndPlayers1"
+            android:exported="false" />
+        <activity
+            android:name=".MatchReporting"
+            android:exported="false" />
+        <activity
             android:name=".DisplayFixturePlayers"
             android:exported="false" />
         <activity
@@ -21,15 +30,11 @@
             android:name=".DisplayFixtures"
             android:exported="true" />
         <activity
-            android:name=".ManageLeagueTable"
-            android:exported="true" />
-        <activity
             android:name=".TransferPlayers"
             android:exported="true" />
         <activity
             android:name=".Transfers"
             android:exported="true" />
-        <activity android:name=".LeagueTable" />
         <activity android:name=".Transfers1" />
         <activity android:name=".FixtureGenerator" />
         <activity android:name=".DisplayPlayers" />

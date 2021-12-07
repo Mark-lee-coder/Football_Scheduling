@@ -1,12 +1,12 @@
 package com.example.footballscheduling;
 
-import android.content.Intent;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
+import android.os.Bundle;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ManageLeagueTable extends AppCompatActivity {
-    private AdapterResults adapterResults;
+public class MatchReporting extends AppCompatActivity {
+    private AdapterFixtures1 adapterFixtures1;
     private RecyclerView recyclerView;
     private ArrayList<ArrayList<Map>>  list;
     Toolbar toolbar;
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ManageLeagueTable.this, DisplayFixtures.class);
+        Intent intent = new Intent(MatchReporting.this, Home.class);
         startActivity(intent);
         finish();
     }
@@ -32,7 +32,7 @@ public class ManageLeagueTable extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_league_table);
+        setContentView(R.layout.activity_display_fixtures1);
 
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recyclerview);
@@ -43,10 +43,6 @@ public class ManageLeagueTable extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-
-        Bundle extras = getIntent().getExtras();
-        String round = extras.getString("Round");
-
 
         Query query = FirebaseDatabase.getInstance().getReference().child("Fixtures");
         query.addValueEventListener(new ValueEventListener() {
@@ -62,9 +58,9 @@ public class ManageLeagueTable extends AppCompatActivity {
                     }
                     list.add(matches);
                 }
-                adapterResults = new AdapterResults(ManageLeagueTable.this, list);
-                recyclerView.setAdapter(adapterResults);
-                adapterResults.notifyDataSetChanged();
+                adapterFixtures1 = new AdapterFixtures1(MatchReporting.this, list);
+                recyclerView.setAdapter(adapterFixtures1);
+                adapterFixtures1.notifyDataSetChanged();
             }
 
             @Override

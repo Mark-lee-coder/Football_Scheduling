@@ -11,27 +11,38 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class AdapterLeagueTableTeam extends RecyclerView.Adapter<AdapterLeagueTableTeam.MyViewHolder> {
+public class AdapterTeam3 extends RecyclerView.Adapter<AdapterTeam3.MyViewHolder>{
     ArrayList<Teams> mList;
     Context context;
 
-    public AdapterLeagueTableTeam(Context context, ArrayList<Teams> mList) {
+    public AdapterTeam3(Context context, ArrayList<Teams> mList) {
         this.mList = mList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public AdapterLeagueTableTeam.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterTeam3.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.team_view1,parent,false);
-        return new AdapterLeagueTableTeam.MyViewHolder(v);
+        return new AdapterTeam3.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterTeam3.MyViewHolder holder, int position) {
         Teams teams = mList.get(position);
         holder.TeamName.setText(teams.getTeamName());
         String key = teams.getKey();
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DisplayPlayers1.class);
+                intent.putExtra("TeamName", teams.getTeamName());
+                intent.putExtra("Key", key);
+                Activity activity = (Activity) context;
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
