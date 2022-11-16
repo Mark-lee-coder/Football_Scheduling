@@ -12,41 +12,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballScheduling">
         <activity
-            android:name=".DisplayPlayers1"
+            android:name=".activities.DisplayPlayers1"
             android:exported="false" />
         <activity
-            android:name=".TeamsAndPlayers1"
+            android:name=".activities.TeamsAndPlayers1"
             android:exported="false" />
         <activity
-            android:name=".MatchReporting"
+            android:name=".activities.MatchReporting"
             android:exported="false" />
         <activity
-            android:name=".DisplayFixturePlayers"
+            android:name=".activities.DisplayFixturePlayers"
             android:exported="false" />
         <activity
-            android:name=".DisplayTeamFixtures"
+            android:name=".activities.DisplayTeamFixtures"
             android:exported="true" />
         <activity
-            android:name=".DisplayFixtures"
+            android:name=".activities.DisplayFixtures"
             android:exported="true" />
         <activity
-            android:name=".TransferPlayers"
+            android:name=".activities.TransferPlayers"
             android:exported="true" />
         <activity
-            android:name=".Transfers"
+            android:name=".activities.Transfers"
             android:exported="true" />
-        <activity android:name=".Transfers1" />
-        <activity android:name=".FixtureGenerator" />
-        <activity android:name=".DisplayPlayers" />
-        <activity android:name=".ViewPlayers" />
-        <activity android:name=".RegisterPlayers" />
-        <activity android:name=".RegisterTeam" />
-        <activity android:name=".Home" />
-        <activity android:name=".TeamsAndPlayers" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.Transfers1" />
+        <activity android:name=".activities.FixtureGenerator" />
+        <activity android:name=".activities.DisplayPlayers" />
+        <activity android:name=".activities.RegisterPlayers" />
+        <activity android:name=".activities.RegisterTeam" />
+        <activity android:name=".activities.Home" />
+        <activity android:name=".activities.TeamsAndPlayers" />
+        <activity android:name=".activities.Profile" />
+        <activity android:name=".activities.Register" />
+        <activity android:name=".activities.Login" />
+        <activity android:name=".activities.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
